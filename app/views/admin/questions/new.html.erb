@@ -1,2 +1,39 @@
-<h1>Admin::Questions#new</h1>
-<p>Find me in app/views/admin/questions/new.html.erb</p>
+<%= render 'admin/sessions/header' %>
+<h2>問題新規登録</h2>
+<%= form_with model:@question, url: admin_questions_path, method: :post do |f| %>
+
+  <h4>題名</h4>
+  <%= f.text_field :tite %>
+
+  <h4>問題１</h4>
+  <%= f.text_field :question %>
+
+  <h4>答え１</h4>
+  <%= f.text_field :answer %>
+
+  <h4>問題２</h4>
+  <%= f.text_field :question %>
+
+  <h4>答え２</h4>
+  <%= f.text_field :answer %>
+
+  <h4>問題３</h4>
+  <%= f.text_field :question %>
+
+  <h4>答え３</h4>
+  <%= f.text_field :answer %>
+
+  <h4>問題４</h4>
+  <%= f.text_field :question %>
+
+  <h4>答え４</h4>
+  <%= f.text_field :answer %>
+
+  <h4>問題５</h4>
+  <%= f.text_field :question %>
+
+  <h4>答え５</h4>
+  <%= f.text_field :answer %>
+
+  <%= f.submit'新規登録' %>
+<% end %>
