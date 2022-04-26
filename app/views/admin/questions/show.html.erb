@@ -32,5 +32,5 @@
 <h4>答え５</h4>
 <p><%= @question.answer %></p>
 
-
-
+<%= link_to "編集",edit_admin_question_path(@question.id) %>
+<%= link_to "削除",admin_question_path(@question.id),method: :delete %>
