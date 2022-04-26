@@ -2,35 +2,13 @@
 <h4>題名</h4>
 <p><%= @question.title %></p>
 
-<h4>問題１</h4>
-<p><%= @question.question %></p>
+<% @question.question_contents.each_with_index do |content, index|%>
+<h4>問題<%=index+1%></h4>
+<p><%= content.content %></p>
 
-<h4>答え１</h4>
-<p><%= @question.answer %></p>
-
-<h4>問題２</h4>
-<p><%= @question.question %></p>
-
-<h4>答え２</h4>
-<p><%= @question.answer %></p>
-
-<h4>問題３</h4>
-<p><%= @question.question %></p>
-
-<h4>答え３</h4>
-<p><%= @question.answer %></p>
-
-<h4>問題４</h4>
-<p><%= @question.question %></p>
-
-<h4>答え４</h4>
-<p><%= @question.answer %></p>
-
-<h4>問題５</h4>
-<p><%= @question.question %></p>
-
-<h4>答え５</h4>
-<p><%= @question.answer %></p>
+<h4>答え<%=index+1%></h4>
+<p><%= content.answer %></p>
+<%end%>
 
 <%= link_to "編集",edit_admin_question_path(@question.id) %>
 <%= link_to "削除",admin_question_path(@question.id),method: :delete %>
