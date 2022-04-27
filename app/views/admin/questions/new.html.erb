@@ -6,7 +6,7 @@
 
   <% @question.question_contents.each_with_index do |question, index| %>
     <h4>問題<%=index+1%></h4>
-    <%= f.text_field :question, name: "question[question][#{index}]" %>
+    <%= f.text_field :content, name: "question[content][#{index}]" %>
 
     <h4>答え<%=index+1%></h4>
     <%= f.text_field :answer, name: "question[answer][#{index}]" %>

@@ -11,7 +11,7 @@ class Admin::QuestionsController < ApplicationController
     if question.save
       (0..4).each do |index|
         question.question_contents.create(
-          content: params[:question][:question][index.to_s],
+          content: params[:question][:content][index.to_s],
           answer: params[:question][:answer][index.to_s]
         )
       end
@@ -25,18 +25,28 @@ class Admin::QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    # @question.question_contents = (0..4).map do |r|
+    #   QuestionContent.find(params[:id])
+    # end
   end
 
   def update
     question = Question.find(params[:id])
-    question.update(question_params)
+    if question.update(question_params)
+      question.question_contents.each_with_index do |question_content,i|
+         question_content.update(
+          content: params[:question][:content][i.to_s],
+          answer: params[:question][:answer][i.to_s]
+        )
+      end
+    end
     redirect_to admin_question_path(question.id)
   end
 
   def destroy
     question = Question.find(params[:id])
     question.destroy
-    redirect_to admin_question_path(question.id)
+    redirect_to admin_homes_top_path
   end
 
   private

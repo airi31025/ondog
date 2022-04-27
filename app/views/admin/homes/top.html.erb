@@ -1,3 +1,11 @@
 <%= render 'admin/sessions/header' %>
 <h2>問題一覧</h2>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<% @questions.each do |question| %>
+
+<%= link_to question.title,admin_question_path(question.id) %>
+
+<% end %>
+
+<%= link_to"問題を作る",new_admin_question_path %>
+
+<%= paginate @questions %>
