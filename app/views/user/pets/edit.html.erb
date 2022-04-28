@@ -1,3 +1,23 @@
 <%= render 'user/sessions/header' %>
-<h1>User::Pets#edit</h1>
-<p>Find me in app/views/user/pets/edit.html.erb</p>
+<h2>会員情報編集</h2>
+<%= form_with model: @user,url: user_registration_path(@user.id),method: :patch do |f| %>
+
+<h4>名前</h4>
+<%= f.text_field :name %>
+
+<h4>メールアドレス</h4>
+<%= f.text_field :email %>
+
+<% end %>
+
+<%= form_with model: @pet,url: user_pet_path(@pet.id),method: :patch do |f| %>
+
+<h4>ペットの名前</h4>
+<%= f.text_field :name %>
+
+<h4>ペットの画像</h4>
+<%= f.text_field :image, accept: "image/*"  %>
+
+<%= f.submit '編集内容を保存' %>
+  
+<% end %>

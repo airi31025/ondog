@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   root to: "homes#top"
-  
+
   devise_for :users,skip: [:passwords],controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
+    registrations: "user/registrations",
+    sessions: 'user/sessions'
   }
-  
+
   namespace :user do
     resources :pets,only:[:new,:create,:show,:edit,:update]
     resources :questions,only:[:index]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post 'questions/test'
     get 'answer_results/congrats'
   end
-  
+
   devise_for :admin,skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :questions,only:[:new,:create,:show,:edit,:update,:destroy]
     resources :pets,only:[:index,:show]
   end
-  
- 
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

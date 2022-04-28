@@ -5,7 +5,8 @@
 <h4>メールアドレス</h4>
 <%= @user.email %>
 
-<%= @pet.name %>
+<h4>ペットの名前</h4>
+<%= @pet.name %><br>
   <% if @pet.image.attached? %>
     <%= image_tag @pet.image, size: "200x200" %>
   <% else %>

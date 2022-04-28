@@ -6,7 +6,7 @@ class User::PetsController < ApplicationController
   def create
     pet = Pet.new(pet_params)
     pet.save
-    redirect_to user_pet_path
+    redirect_to user_pet_path(current_user)
   end
 
   def show
@@ -15,6 +15,16 @@ class User::PetsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
+    pet = Pet.find(params[:id])
+    pet.update(pet_params)
+    redirect_to user_pet_path(pet.id)
   end
 
   private
