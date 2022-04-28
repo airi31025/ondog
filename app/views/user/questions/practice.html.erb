@@ -1,3 +1,13 @@
 <%= render 'user/sessions/header' %>
-<h1>User::Questions#practice</h1>
-<p>Find me in app/views/user/questions/practice.html.erb</p>
+<h2>練習問題</h2>
+<p><%= @question.title %></p>
+
+<% @question.question_contents.each_with_index do |content, index|%>
+<h4>問題<%=index+1%></h4>
+<p><%= content.content %></p>
+
+<h4>答え<%=index+1%></h4>
+<p><%= content.answer %></p>
+<%end%>
+
+<%= link_to"テストを受ける",user_questions_test_path %>

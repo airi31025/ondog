@@ -20,8 +20,8 @@ class User::PetsController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
-    user.update(user_params)
+    @user = User.find(params[:id])
+    @user.update(user_params)
     pet = Pet.find(params[:id])
     pet.update(pet_params)
     redirect_to user_pet_path(pet.id)
@@ -31,5 +31,6 @@ class User::PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :image)
   end
+
 
 end
