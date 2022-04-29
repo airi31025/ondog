@@ -1,3 +1,7 @@
 <%= render 'user/sessions/header' %>
-<h1>User::Questions#test</h1>
-<p>Find me in app/views/user/questions/test.html.erb</p>
+<h2>テスト</h2>
+<p><%= @question.title %></p>
+
+<% @question.question_contents.each_with_index do |content, index|%>
+<h4>問題<%=index+1%></h4>
+<p><%= content.content %></p>

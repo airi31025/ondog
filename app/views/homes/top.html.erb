@@ -1,3 +1,13 @@
 <%= render 'user/sessions/header' %>
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+
+
+    <h1>Welcome to ONEDOG</h1>
+
+    <%= link_to "新規登録", new_user_registration_path,class:"btn btn-outline-info btn-sm" %>
+    <%= link_to "ログイン", new_user_session_path,class:"btn btn-outline-info btn-sm" %>
+    </div>
+  </div>
+</div>
