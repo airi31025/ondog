@@ -1,18 +1,25 @@
 <%= render 'admin/sessions/header' %>
-<h2>問題編集</h2>
-<%= form_with model:@question, url: admin_question_path(@question.id),method: :patch do |f| %>
+<div class="container">
+  <div class="row">
+   <h2>問題編集</h2>
+   <%= form_with model:@question, url: admin_question_path(@question.id),method: :patch do |f| %>
+  </div>
+   <h4>題名</h4>
+   <%= f.text_field :title %>
 
- <h4>題名</h4>
-  <%= f.text_field :title %>
-
-  <% @question.question_contents.each_with_index do |question, index| %>
+   <% @question.question_contents.each_with_index do |question, index| %>
+  <div class="row">
+   <div class="col-md-5">
     <h4>問題<%=index+1%></h4>
     <%= f.text_field :content, name: "question[content][#{index}]",value: question.content %>
-
+   </div>
+   <div class="col-md-5">
     <h4>答え<%=index+1%></h4>
-    <%= f.text_field :answer, name: "question[answer][#{index}]",value: question.answer %>
+     <%= f.text_field :answer, name: "question[answer][#{index}]",value: question.answer %>
+   </div>
+  </div>
+   <% end %>
+    <%= f.submit '変更を保存' %>
   <% end %>
+</div>
 
-  <%= f.submit '変更を保存' %>
-
-<% end %>

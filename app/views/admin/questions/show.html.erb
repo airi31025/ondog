@@ -1,14 +1,25 @@
 <%= render 'admin/sessions/header' %>
-<h4>題名</h4>
-<p><%= @question.title %></p>
+<div class="container">
+  <div class="row">
+    <h4>題名</h4>
+    <p><%= @question.title %></p>
+  </div>
 
-<% @question.question_contents.each_with_index do |content, index|%>
-<h4>問題<%=index+1%></h4>
-<p><%= content.content %></p>
+  <% @question.question_contents.each_with_index do |content, index|%>
+    <div class="row">
+      <div class="col-md-5">
+        <h4>問題<%=index+1%></h4>
+        <p><%= content.content %></p>
+      </div>
+      <div class="col-md-5">
+        <h4>答え<%=index+1%></h4>
+        <p><%= content.answer %></p>
+      </div>
+    </div>
+    <%end%>
 
-<h4>答え<%=index+1%></h4>
-<p><%= content.answer %></p>
-<%end%>
+    <%= link_to "編集",edit_admin_question_path(@question.id) %>
+    <%= link_to "削除",admin_question_path(@question.id),method: :delete %>
 
-<%= link_to "編集",edit_admin_question_path(@question.id) %>
-<%= link_to "削除",admin_question_path(@question.id),method: :delete %>
+  </div>
+</div>
