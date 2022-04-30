@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resources :pets,only:[:new,:create,:show,:edit,:update]
     resources :questions,only:[:index]
     get 'questions/practice/:question_id', to: 'questions#practice', as: 'question_practice'
-    post 'questions/test'
+    get 'questions/test/:question_id', to: 'questions#test', as: 'question_test'
+    post 'answer_results/create'
     get 'answer_results/congrats'
   end
 

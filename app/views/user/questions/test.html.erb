@@ -5,3 +5,6 @@
 <% @question.question_contents.each_with_index do |content, index|%>
 <h4>問題<%=index+1%></h4>
 <p><%= content.content %></p>
+<% end %>
+
+<%= form_with model:@answer_result, url: user_answer_results_create_path, method: :post do |f| %>

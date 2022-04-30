@@ -1,13 +1,32 @@
 <%= render 'user/sessions/header' %>
-<h2>練習問題</h2>
-<p><%= @question.title %></p>
+<div class="container">
+  <div class="row">
+    <h2>練習問題</h2>
+    <h3><%= @question.title %></h3>
+  </div>
 
-<% @question.question_contents.each_with_index do |content, index|%>
-<h4>問題<%=index+1%></h4>
-<p><%= content.content %></p>
+  <% @question.question_contents.each_with_index do |content, index|%>
+    <div class="row">
+      <div class="col-md-5">
+        <h4>問題<%=index+1%></h4>
+        <p><%= content.content %></p>
+      </div>
+      <div class="col-md-5">
 
-<h4>答え<%=index+1%></h4>
-<p><%= content.answer %></p>
-<%end%>
+        <div class="hidden_box">
+          <label for="label1"><h4>答え<%=index+1%></h4></label>
+          <input type="checkbox" id="label1"/>
+          <div class="hidden_show">
+            <!--非表示ここから-->
+            	<p><%= content.answer %></p>
+            <!--ここまで-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
 
-<%= link_to"テストを受ける",user_questions_test_path %>
+    <%= link_to"テストを受ける",user_question_test_path %>
+
+  </div>
+</div>

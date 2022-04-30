@@ -8,5 +8,9 @@ class User::QuestionsController < ApplicationController
   end
 
   def test
+    @question = Question.find(params[:question_id])
+    @answer_result = AnswerResult.new
   end
+  
+  
 end
