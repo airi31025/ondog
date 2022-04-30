@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :pets,only:[:new,:create,:show,:edit,:update]
     resources :questions,only:[:index]
-    get 'questions/practice'
+    get 'questions/practice/:question_id', to: 'questions#practice', as: 'question_practice'
     post 'questions/test'
     get 'answer_results/congrats'
   end

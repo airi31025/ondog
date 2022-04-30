@@ -4,7 +4,7 @@ class User::QuestionsController < ApplicationController
   end
 
   def practice
-     @question = Question.find(params[:id])
+     @question = Question.find(params[:question_id])
   end
 
   def test

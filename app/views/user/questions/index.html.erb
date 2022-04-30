@@ -2,7 +2,7 @@
 <h2>問題一覧</h2>
 <% @questions.each do |question| %>
 
-<%= link_to question.title,user_questions_practice_path %>
+<%= link_to question.title,user_question_practice_path(question.id) %>
 
 <% end %>
 
