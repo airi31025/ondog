@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :answer_results
+
+  has_one :pet
+  accepts_nested_attributes_for :pet
 end
