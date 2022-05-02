@@ -1,15 +1,27 @@
 <%= render 'user/sessions/header' %>
-<h2>テスト</h2>
-<p><%= @question.title %></p>
-<%= form_with url: user_answer_results_create_path, method: :post do |f| %>
+<div class="container">
+  <div class="row">
+    <h2>テスト</h2>
+  </div>
+  <div class="row">
+    <p><%= @question.title %></p>
+  </div>
 
-    <% @question.question_contents.each_with_index do |content, index|%>
-    <h4>問題<%=index+1%></h4>
-        <p><%= content.content %></p>
-    <h4>解答<%= index+1%></h4>
-        <%= text_field_tag "answers[]" %>
+    <%= form_with url: user_answer_results_create_path, method: :post do |f| %>
+        <% @question.question_contents.each_with_index do |content, index|%>
+        <div class="row">
+          <div class="col-md-5">
+            <h4>問題<%=index+1%></h4>
+            <p><%= content.content %></p>
+          </div>
+          <div class="col-md-5">
+           <h4>解答<%= index+1%></h4>
+            <%= text_field_tag "answers[]" %>
+          </div>
+        </div>
+        <% end %>
+
+        <%= hidden_field_tag(:question_id, @question.id) %>
+        <%= submit_tag %>
     <% end %>
-
-    <%= hidden_field_tag(:question_id, @question.id) %>
-    <%= submit_tag %>
-<% end %>
+</div>

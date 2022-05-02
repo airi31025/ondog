@@ -1,10 +1,12 @@
 <%= render 'user/sessions/header' %>
-<h2>問題一覧</h2>
-<% @questions.each do |question| %>
-
-<%= link_to question.title,user_question_practice_path(question.id) %>
-
-<% end %>
-
-
-<%= paginate @questions %>
+<div class="container">
+  <h2>問題一覧</h2>
+  <% @questions.each do |question| %>
+  
+  <%= link_to question.title,user_question_practice_path(question.id) %>
+  
+  <% end %>
+  
+  
+  <%= paginate @questions %>
+</div>
