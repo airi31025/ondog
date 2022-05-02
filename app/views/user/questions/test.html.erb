@@ -1,14 +1,15 @@
 <%= render 'user/sessions/header' %>
 <h2>テスト</h2>
 <p><%= @question.title %></p>
+<%= form_with url: user_answer_results_create_path, method: :post do |f| %>
 
-<% @question.question_contents.each_with_index do |content, index|%>
-<h4>問題<%=index+1%></h4>
-<p><%= content.content %></p>
-<% end %>
+    <% @question.question_contents.each_with_index do |content, index|%>
+    <h4>問題<%=index+1%></h4>
+        <p><%= content.content %></p>
+    <h4>解答<%= index+1%></h4>
+        <%= text_field_tag "answers[]" %>
+    <% end %>
 
-<%= form_with model:@answer_result, url: user_answer_results_create_path, method: :post do |f| %>
-    <h4>答え<%=index+1%></h4>
-        <%= f.text_field :answer, name: "question[answer][#{index}]" %>
-    </div>
+    <%= hidden_field_tag(:question_id, @question.id) %>
+    <%= submit_tag %>
 <% end %>
