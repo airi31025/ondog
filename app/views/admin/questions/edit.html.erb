@@ -1,8 +1,8 @@
 <%= render 'admin/sessions/header' %>
 <div class="container">
+ <%= form_with model:@question, url: admin_question_path(@question.id),method: :patch do |f| %>
   <div class="row">
    <h2>問題編集</h2>
-   <%= form_with model:@question, url: admin_question_path(@question.id),method: :patch do |f| %>
   </div>
    <h4>題名</h4>
    <%= f.text_field :title %>

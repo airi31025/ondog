@@ -1,3 +1,15 @@
 <%= render 'admin/sessions/header' %>
-<h1>Admin::Pets#show</h1>
-<p>Find me in app/views/admin/pets/show.html.erb</p>
+<h2><%= @user.name %>さんの会員詳細</h2>
+<h4>名前</h4>
+<%= @user.name %>
+<h4>メールアドレス</h4>
+<%= @user.email %>
+    
+    
+<h4>ペットの名前</h4>
+  <%= @pet.name %><br>
+    <% if @pet.image.attached? %>
+      <%= image_tag @pet.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
