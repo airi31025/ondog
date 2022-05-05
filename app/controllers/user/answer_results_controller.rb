@@ -19,6 +19,13 @@ class User::AnswerResultsController < ApplicationController
   # end
 
   def congrats
-
+    @pet = Pet.find(params[:id])
+    @question = Question.find(params[:question_id])
+    
+    totalexp = pet.exp
+    totalexp += question.exp
+    
+    pet.exp = totalexp
+    pet.update(exp: totalexp)
   end
 end

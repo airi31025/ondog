@@ -1,3 +1,12 @@
 <%= render 'user/sessions/header' %>
-<h1>User::AnswerResults#congrats</h1>
-<p>Find me in app/views/user/answer_results/congrats.html.erb</p>
+<h2>全問正解です！おめでとう！</h2>
+
+<h4>ペットの名前</h4>
+<%= @pet.name %><br>
+  <% if @pet.image.attached? %>
+    <%= image_tag @pet.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+
+<%= @pet.level %>

@@ -1,11 +1,11 @@
 <%= render 'admin/sessions/header' %>
 <div class="container">
- <%= form_with model:@question, url: admin_question_path(@question.id),method: :patch do |f| %>
+ <%= form_with model: @question, url: admin_question_path(@question.id),method: :patch do |f| %>
   <div class="row">
    <h2>問題編集</h2>
   </div>
    <h4>題名</h4>
-   <%= f.text_field :title %>
+   <%= f.text_field :title, value: @question.title %>
 
    <% @question.question_contents.each_with_index do |question, index| %>
   <div class="row">
