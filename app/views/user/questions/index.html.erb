@@ -1,12 +1,17 @@
 <%= render 'user/sessions/header' %>
-<div class="container">
-  <h2>問題一覧</h2>
-  <% @questions.each do |question| %>
-  
-  <%= link_to question.title,user_question_practice_path(question.id) %>
-  
-  <% end %>
-  
-  
-  <%= paginate @questions %>
-</div>
+
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-header">
+      <h2>問題一覧</h2>
+    </div>
+    <% @questions.each do |question| %>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= link_to question.title,user_question_practice_path(question.id) %></li>
+      </ul><br>
+    <% end %>
+
+    <%= paginate @questions %>
+  </div>
+
+
+

@@ -18,8 +18,8 @@
     </div>
     <%end%>
 
-    <%= link_to "編集",edit_admin_question_path(@question.id) %>
-    <%= link_to "削除",admin_question_path(@question.id),method: :delete %>
+    <%= link_to "編集",edit_admin_question_path(@question.id),class:"btn btn-outline-success" %>
+    <%= link_to "削除",admin_question_path(@question.id),method: :delete,class:"btn btn-outline-danger" %>
 
   </div>
 </div>
