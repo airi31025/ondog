@@ -4,8 +4,8 @@
 <%= @user.name %>
 <h4>メールアドレス</h4>
 <%= @user.email %>
-    
-    
+
+
 <h4>ペットの名前</h4>
   <%= @pet.name %><br>
     <% if @pet.image.attached? %>
@@ -13,3 +13,12 @@
     <% else %>
       <%= image_tag 'no_image', size: "200x200" %>
     <% end %>
+
+
+<h4>Lv.<%= @pet.level %></h4>
+<div class="progress">
+  <div class="progress-bar" style="width:<%=((@pet.exp - @explevel[@pet.level])*100)  / (((@explevel[@pet.level+1]) - @explevel[@pet.level]))  %>% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
+  <%= @pet.exp %>
+  </div>
+</div>
+<%= @pet.exp %>
