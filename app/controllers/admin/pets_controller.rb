@@ -1,7 +1,7 @@
 class Admin::PetsController < ApplicationController
   def index
     @users = User.all
-    @pets = Pet.all
+    @pet = Pet.all
   end
 
   def show

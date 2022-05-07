@@ -1,4 +1,5 @@
 class User::AnswerResultsController < ApplicationController
+  CONGRATS_EXP = 5
   def create
     # byebug
     @question = Question.find(params[:question_id])
@@ -8,7 +9,7 @@ class User::AnswerResultsController < ApplicationController
         return render 'user/questions/practice'
       end
     end
-    redirect_to user_answer_results_congrats_path
+    redirect_to user_answer_results_congrats_path(question_id: @question.id)
   end
 
   #   if  question.question_contents_ansers == question.answer_results
@@ -19,13 +20,20 @@ class User::AnswerResultsController < ApplicationController
   # end
 
   def congrats
-    @pet = Pet.find(params[:id])
+
+    @pet = current_user.pet
     @question = Question.find(params[:question_id])
-    
-    totalexp = pet.exp
-    totalexp += question.exp
-    
-    pet.exp = totalexp
-    pet.update(exp: totalexp)
+
+    totalexp = @pet.exp
+    totalexp += CONGRATS_EXP
+
+    @pet.exp = totalexp
+    @pet.update(exp: totalexp)
+
+    levelsetting = LevelSetting.find_by(level: @pet.level+1);
+    if levelsetting.threshold <= @pet.exp
+      @pet.level = @pet.level+1
+      @pet.update(level: @pet.level)
+    end
   end
 end
