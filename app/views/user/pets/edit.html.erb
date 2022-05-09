@@ -1,20 +1,26 @@
 <%= render 'user/sessions/header' %>
 <div class="container">
-  <h2>会員情報編集</h2>
-  <%= form_with model: @pet,url: user_pet_path(@pet.id),method: :patch do |f| %>
-    <%= f.fields_for :user do |u| %>
-      <h4>名前</h4>
-      <%= u.text_field :name %>
-      <h4>メールアドレス</h4>
-      <%= u.text_field :email %>
-    <% end %>
+  <div class="row">
+    <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h2 class="text-dark bg-light p-4 mb-0">会員情報編集</h2>
+      <div class="form-body p-4">
+        <%= form_with model: @pet,url: user_pet_path(@pet.id),method: :patch do |f| %>
+          <%= f.fields_for :user do |u| %>
+            <h4>名前</h4>
+            <%= u.text_field :name %>
+            <h4>メールアドレス</h4>
+            <%= u.text_field :email %>
+          <% end %>
 
-    <h4>ペットの名前</h4>
-    <%= f.text_field :name %>
-    <h4>ペットの画像</h4>
-    <%= f.file_field :image, accept: "image/*" %>
+          <h4>ペットの名前</h4>
+          <%= f.text_field :name %>
+          <h4>ペットの画像</h4>
+          <%= f.file_field :image, accept: "image/*" %>
 
-    <%= f.submit '編集内容を保存',class:"btn btn-outline-info" %>
+          <%= f.submit '編集内容を保存',class:"btn btn-outline-info" %>
 
-  <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

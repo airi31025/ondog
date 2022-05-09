@@ -7,22 +7,20 @@
     <p><%= @question.title %></p>
   </div>
 
-    <%= form_with url: user_answer_results_create_path, method: :post do |f| %>
-        <% @question.question_contents.each_with_index do |content, index|%>
-        <div class="row">
-          <div class="col-md-5">
-            <h4>問題<%=index+1%></h4>
-            <p><%= content.content %></p>
-          </div>
-          <div class="col-md-5">
-           <h4>解答<%= index+1%></h4>
-            <%= text_field_tag "answers[]" %>
-          </div>
+  <%= form_with url: user_answer_results_create_path, method: :post do |f| %>
+    <% @question.question_contents.each_with_index do |content, index|%>
+      <div class="row">
+        <div class="col-md-5">
+          <h4>問題<%=index+1%></h4>
+          <p><%= content.content %></p>
         </div>
-
-        <% end %>
-
-        <%= hidden_field_tag(:question_id, @question.id) %>
-        <%= submit_tag"テストを提出する",class:"btn btn-outline-info" %>
+        <div class="col-md-5">
+          <h4>解答<%= index+1%></h4>
+          <%= text_field_tag "answers[]" %>
+        </div>
+      </div>
+    <% end %>
+      <%= hidden_field_tag(:question_id, @question.id) %>
+      <%= submit_tag"テストを提出する",class:"btn btn-outline-info" %>
     <% end %>
 </div>
