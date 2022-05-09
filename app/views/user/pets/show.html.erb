@@ -33,6 +33,13 @@
         <% else %>
           <%= image_tag 'no_image', size: "200x200" %>
         <% end %>
+        
+      <h1>Lv.<%= @pet.level %></h1>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-info" style="width:<%=((@pet.exp - @explevel[@pet.level])*100)  / (((@explevel[@pet.level+1]) - @explevel[@pet.level]))  %>% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
+        <%= @pet.exp %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">

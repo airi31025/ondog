@@ -12,12 +12,6 @@ class User::AnswerResultsController < ApplicationController
     redirect_to user_answer_results_congrats_path(question_id: @question.id)
   end
 
-  #   if  question.question_contents_ansers == question.answer_results
-  #     redirect_to user_answer_results_congrats
-  #   else
-  #     render user_question_practice
-  #   end
-  # end
 
   def congrats
 
@@ -35,5 +29,8 @@ class User::AnswerResultsController < ApplicationController
       @pet.level = @pet.level+1
       @pet.update(level: @pet.level)
     end
+
+    @explevel = [0,0,10,21,33,46,60,75,92,111,132,155,180,208,239,273,310,351,396,446,500]
+
   end
 end

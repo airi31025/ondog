@@ -1,7 +1,10 @@
 <%= render 'header' %>
-<div class="container">
-<h2>会員の方はこちらからログイン</h2>
+<div class="container
+  <div class="row no-gutters">
+    <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h2 class="text-dark bg-light p-4 mb-0">会員の方はこちらからログイン</h2>
 
+<div class="form-body p-4">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -28,4 +31,8 @@
 <h5>会員登録がお済みでない方</h5>
 <%= link_to "こちら",new_user_registration_path,class:"btn btn-info" %>
 <span>から新規登録を行なってください！</span>
+</div>
+</div>
+    </div>
+  </div>
 </div>
