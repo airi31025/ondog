@@ -22,8 +22,12 @@
     </div>
   </div>
   <div class="row">
-    <%= link_to "問題一覧に戻る",user_questions_path,class:"btn btn-info"%>
-    <%= link_to "マイページ",user_pet_path(@pet.id),class:"btn btn-outline-info"%>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-right me-md-2" type="button"><%= link_to "問題一覧に戻る",user_questions_path,class:"btn btn-info"%></button>
+  <button class="btn btn-right" type="button"><%= link_to "マイページ",user_pet_path(@pet.id),class:"btn btn-outline-info"%></button>
+</div>
+
+
   </div>
 </div>
 
