@@ -1,11 +1,11 @@
 class User::AnswerResultsController < ApplicationController
   CONGRATS_EXP = 5
   def create
-    # byebug
     @question = Question.find(params[:question_id])
 
     @question.question_contents.each_with_index do |content, index|
       if content.answer != params[:answers][index]
+        flash.now[:notice] = "不正解です。もう一度勉強しましょう！"
         return render 'user/questions/practice'
       end
     end

@@ -1,13 +1,21 @@
 <%= render 'user/sessions/header' %>
-<h2>ペット</h2>
-<%= form_with model:@pet, url: user_pets_path,method: :post do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h2 class="text-dark bg-light p-4 mb-0">ペット</h2>
+      <div class="form-body p-4">
+        <%= form_with model:@pet, url: user_pets_path,method: :post do |f| %>
+        
+          <h4>名前</h4>
+          <%= f.text_field :name %>
+          
+          <h4>画像</h4>
+          <%= f.file_field :image, accept: "image/*" %>
+          
+          <%= f.submit '登録' %>
 
-  <h4>名前</h4>
-  <%= f.text_field :name %>
-  
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  
-  <%= f.submit '登録' %>
-
-<% end %>
+        <% end %>
+       </div>
+    </div>
+  </div>
+</div>
