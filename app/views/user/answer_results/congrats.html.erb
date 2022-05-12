@@ -16,8 +16,14 @@
     <div class="col-md-5">
       <h2>Lv.<%= @pet.level %></h2>
       <div class="progress">
+
+        <% if @pet.level == 20 %>
+        <div class="progress-bar progress-bar-striped bg-warning" style="width:100% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
+        <%= @pet.exp %>
+        <% elsif @explevel[@pet.level] && @explevel[@pet.level+1] && @explevel[@pet.level]  %>
         <div class="progress-bar progress-bar-striped bg-info" style="width:<%=((@pet.exp - @explevel[@pet.level])*100)  / (((@explevel[@pet.level+1]) - @explevel[@pet.level]))  %>% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
         <%= @pet.exp %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -20,12 +20,24 @@ class User::AnswerResultsController < ApplicationController
 
     totalexp = @pet.exp
     totalexp += CONGRATS_EXP
+    if totalexp > 500
+      totalexp = 500
+    end
 
     @pet.exp = totalexp
     @pet.update(exp: totalexp)
 
-    levelsetting = LevelSetting.find_by(level: @pet.level+1);
-    if levelsetting.threshold <= @pet.exp
+    if @pet.level > 20
+      search_key = 20
+    else
+      search_key = @pet.level
+    end
+    # binding.pry
+
+    # levelsetting = LevelSetting.find_by(level: 20);
+    levelsetting = LevelSetting.find_by(level: search_key+1);
+  # binding.pry
+    if levelsetting && levelsetting.threshold <= @pet.exp
       @pet.level = @pet.level+1
       @pet.update(level: @pet.level)
     end

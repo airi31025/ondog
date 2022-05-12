@@ -1,8 +1,9 @@
-Admin.create!(
-  email: 'rema.717@i.softbank.jp',
-  password: 'rema717',
-)
+# Admin.create!(
+#   email: 'rema.717@i.softbank.jp',
+#   password: 'rema717',
+# )
 
+LevelSetting.create(level: '1',threshold: '0')
 LevelSetting.create(level: '2',threshold: '10')
 LevelSetting.create(level: '3',threshold: '21')
 LevelSetting.create(level: '4',threshold: '33')
