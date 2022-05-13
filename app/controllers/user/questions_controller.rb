@@ -1,6 +1,6 @@
 class User::QuestionsController < ApplicationController
   def index
-    @questions = Question.page(params[:page])
+    @questions = Question.page(params[:page]).order(created_at: :desc)
   end
 
   def practice
@@ -15,5 +15,5 @@ class User::QuestionsController < ApplicationController
     end
   end
 
-  
+
 end

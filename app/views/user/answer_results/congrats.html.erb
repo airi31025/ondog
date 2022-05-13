@@ -15,25 +15,25 @@
     </div>
     <div class="col-md-5">
       <h2>Lv.<%= @pet.level %></h2>
-      <div class="progress">
-
-        <% if @pet.level == 20 %>
-        <div class="progress-bar progress-bar-striped bg-warning" style="width:100% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
-        <%= @pet.exp %>
-        <% elsif @explevel[@pet.level] && @explevel[@pet.level+1] && @explevel[@pet.level]  %>
-        <div class="progress-bar progress-bar-striped bg-info" style="width:<%=((@pet.exp - @explevel[@pet.level])*100)  / (((@explevel[@pet.level+1]) - @explevel[@pet.level]))  %>% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
-        <%= @pet.exp %>
-        <% end %>
+      <% if @pet.level == 20 %>
+        <h3>♡MAX♡</h3>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-warning" style="width:100% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
+          <%= @pet.exp %>
+        </div>
+      <% elsif @explevel[@pet.level] && @explevel[@pet.level+1] && @explevel[@pet.level]  %>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-info" style="width:<%=((@pet.exp - @explevel[@pet.level])*100)  / (((@explevel[@pet.level+1]) - @explevel[@pet.level]))  %>% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">
+          <%= @pet.exp %>
+        </div>
+      <% end %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-right me-md-2" type="button"><%= link_to "問題一覧に戻る",user_questions_path,class:"btn btn-info"%></button>
-  <button class="btn btn-right" type="button"><%= link_to "マイページ",user_pet_path(@pet.id),class:"btn btn-outline-info"%></button>
-</div>
-
-
+    <div class="row">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-right me-md-2" type="button"><%= link_to "問題一覧に戻る",user_questions_path,class:"btn btn-info"%></button>
+      <button class="btn btn-right" type="button"><%= link_to "マイページ",user_pet_path(@pet.id),class:"btn btn-outline-info"%></button>
+    </div>
   </div>
 </div>
 
