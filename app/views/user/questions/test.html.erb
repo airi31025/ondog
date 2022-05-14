@@ -7,7 +7,7 @@
     <p><%= @question.title %></p>
   </div>
 
-  <%= form_with url: user_answer_results_create_path, method: :post do |f| %>
+  <%= form_with url: user_answer_results_create_path, method: :post, local: true do |f| %>
     <% @question.question_contents.each_with_index do |content, index|%>
       <div class="row">
         <div class="col-md-5">

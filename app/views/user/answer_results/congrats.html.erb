@@ -8,14 +8,13 @@
       <h4>ペットの名前</h4>
       <%= @pet.name %><br>
         <% if @pet.image.attached? %>
-          <%= image_tag @pet.image, size: "200x200" %>
+          <%= image_tag @pet.image, size: "300x300" %>
         <% else %>
-          <%= image_tag 'no_image', size: "200x200" %>
+          <%= image_tag 'no_image', size: "300x300" %>
         <% end %>
-    </div>
-    <div class="col-md-5">
+
       <h2>Lv.<%= @pet.level %></h2>
-      <% if @pet.level == 20 %>
+      <% if @pet.level == 50 %>
         <h3>♡MAX♡</h3>
         <div class="progress">
           <div class="progress-bar progress-bar-striped bg-warning" style="width:100% " role="progressbar" aria-valuenowaria-valuemin="0" aria-valuemax="100">

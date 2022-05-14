@@ -11,6 +11,13 @@ module Ondog
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    config.load_defaults 5.2
+    config.paths.add 'lib', eager_load: true
+    config.time_zone = 'Tokyo'
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

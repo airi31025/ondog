@@ -6,7 +6,7 @@
   </div>
     <% @users.each do |user| %>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= user.updated_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        <li class="list-group-item"><%= user.pet.updated_at.strftime('%Y/%m/%d %H:%M') %>
         <%= link_to user.name,admin_pet_path(user.pet.id) %></li>
       </ul>
     <% end %>
